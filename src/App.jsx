@@ -12,6 +12,8 @@ import {
   Sparkles,
   ChevronDown,
   ChevronUp,
+  Palette,
+  Play,
 } from 'lucide-react';
 
 const navLinks = [
@@ -33,7 +35,7 @@ function App() {
 
           <a href="#" className="flex items-center text-xl font-bold text-fuchsia-500 gap-2">
             <Zap className="w-9 h-9 text-fuchsia-500 animate-pulse" />
-            <span className="ml-2 font-bold tracking-tight">Active React</span>
+            <span className="logo-wordmark ml-2">Active React</span>
           </a>
 
           <nav className="hidden md:flex space-x-4 items-center">
@@ -49,7 +51,7 @@ function App() {
           </button>
 
         </div>
-        
+
 
         {/* Menu Mobile */}
         {open && (
@@ -59,7 +61,7 @@ function App() {
                 <div className="flex items-center justify-between mb-2">
                   <div className='flex items-center gap-2'>
                     <Zap className="w-6 h-6 text-fuchsia-500" />
-                    <span className="text-xl font-semibold">Active React</span>
+                    <span className="logo-wordmark text-xl">Active React</span>
                   </div>
                   <button className="p-2 rounded-lg" onClick={() => setOpen(false)}>
                     <X className="w-6 h-6" />
@@ -81,6 +83,73 @@ function App() {
           </div>
         )}
       </header>
+
+
+      {/* Hero section */}
+      <section className="relative overflow-hidden">
+        <div className="mx-auto max-w-6xl px-4 py-20 relative">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className='text-4xl font-extrabold'
+          >
+            Acelere seu desenvolvimento com <span className="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-pink-500">React e Tailwind CSS</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className='mt-4 text-lg text-slate-400'
+          >
+            Acelere seu desenvolvimento com <span className="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-pink-500">React e Tailwind CSS</span>
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className='mt-8 flex flex-row gap-3'
+          >
+            <a href="#" className="inline-flex items-center justify-center rounded-2xl gap-2 bg-fuchsia-600 px-6 py-3 font-medium hover:bg-fuchsia-700 transition-colors duration-300 ">
+              Comece agora <ArrowRight className="w-5 h-5" />
+            </a>
+
+            <a href="#" className="inline-flex items-center justify-center rounded-2xl gap-2 border border-white/90 px-6 py-3 font-medium hover:bg-white/20 transition-colors duration-300">
+              Saiba mais <ArrowRight className="w-5 h-5" />
+            </a>
+
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className='mt-15 grid grid-cols-3 gap-4'
+          >
+            {["React", "Tailwind CSS", "Framer Motion"].map((tech, index) => (
+              <div
+                key={tech}
+                className="rounded-2xl border border-white/10 bg-white/10 p-3"
+              >
+                <div className="flex items-center gap-3">
+                  {index === 0 && <Zap className="size-5 text-fuchsia-500" />}
+                  {index === 1 && <Palette className="size-5 text-pink-500" />}
+                  {index === 2 && <Play className="size-5 text-purple-500" />}
+                  <div className="semibold">{tech}</div>
+                </div>
+
+                <p className="text-sm text-slate-400 mt-2">
+                  {tech === "React" && "Biblioteca para construção de interfaces de usuário"}
+                  {tech === "Tailwind CSS" && "Framework de estilização"}
+                  {tech === "Framer Motion" && "Biblioteca para animações"}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
     </div>
   )
