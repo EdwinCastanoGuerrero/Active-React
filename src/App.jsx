@@ -151,6 +151,42 @@ function App() {
         </div>
       </section>
 
+      {/* features */}
+      <section id="features" className="mx-auto max-w-6x1 px-4 py-1">
+        <h2 className="text-3xl font-bold items-">Recursos</h2>
+        <p className="text-slate-300 mt-2 max-w-2xl text-lg">
+          Descubra os principais recursos que tornam nossa solução a escolha ideal para o seu projeto.
+        </p>
+
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              {
+                title: "Desempenho Rápido",
+                description: "Nossa aplicação é otimizada para oferecer desempenho rápido e eficiente, garantindo uma experiência suave para os usuários.",
+                icon: <Zap className="w-6 h-6 text-fuchsia-500 animate-pulse" />,
+              },
+              {
+                title: "Segurança Robusta",
+                description: "Implementamos medidas de segurança avançadas para proteger seus dados e garantir a integridade da aplicação.",
+                icon: <Shield className="w-6 h-6 text-pink-500 animate-pulse" />,
+              },
+              {
+                title: "Interface Intuitiva",
+                description: "Nossa interface é projetada para ser fácil de usar, permitindo que os usuários naveguem e interajam com a aplicação sem esforço.",
+                icon: <Sparkles className="w-6 h-6 text-purple-500 animate-pulse" />,
+              }
+            ].map((feature) => (
+              <div key={feature.title} className="rounded-2xl border border-white/10 bg-white/10 p-6">
+                <div className="flex items-center gap-3">
+                  {feature.icon}
+                  <h3 className="text-lg font-semibold">{feature.title}</h3>
+                </div>
+                <p className="text-slate-400 mt-2">{feature.description}</p>
+              </div>
+            ))}
+        </div>
+      </section>
+
     </div>
   )
 }
