@@ -152,8 +152,8 @@ function App() {
       </section>
 
       {/* features */}
-      <section id="features" className="mx-auto max-w-6x1 px-4 py-1">
-        <h2 className="text-3xl font-bold items-">Recursos</h2>
+      <section id="features" className="mx-auto max-w-6xl px-4 py-16">
+        <h2 className="text-3xl font-bold">Recursos</h2>
         <p className="text-slate-300 mt-2 max-w-2xl text-lg">
           Descubra os principais recursos que tornam nossa solução a escolha ideal para o seu projeto.
         </p>
@@ -185,6 +185,28 @@ function App() {
               </div>
             ))}
         </div>
+      </section>
+
+      {/* depoimentos */}
+
+      <section id="testimonials" className="mx-auto max-w-6xl px-4 py-16">
+            <h2 className="text-3xl font-bold">Depoimentos</h2>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[1,2,3].map((testimonial) => (
+                <blockquote key={testimonial} className="rounded-2xl border border-white/10 bg-white/10 p-6">
+                  <div className="flex items-center gap-2 text-ambar-400">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <Star key={index} className="w-4 h-4 text-amber-400 fill-current" />
+                    ))}
+                  </div>
+                  <p className="text-slate-400 mt-2">
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                  </p>
+
+                  <footer className="mt-4 text-sm text-slate-500">- Usuário {testimonial}</footer>
+                </blockquote>
+              ))}
+            </div>
       </section>
 
     </div>
