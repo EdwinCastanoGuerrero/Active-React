@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="bg-slate-950 text-slate-100 selection:bg-fuschia-500/30">
       {/* Navbar */}
-      <header className="sticky top-0 z-40 border-b border-white/100">
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-900 backdrop-blur-md">
 
         <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
 
@@ -60,8 +60,8 @@ function App() {
               <div className="fixed right-0 top-0 w-80 h-full bg-slate-900  border-white/10 p-6">
                 <div className="flex items-center justify-between mb-2">
                   <div className='flex items-center gap-2'>
-                    <Zap className="w-6 h-6 text-fuchsia-500" />
-                    <span className="logo-wordmark text-xl">Active React</span>
+
+                    <span className="logo-wordmark text-xl"><Zap /></span>
                   </div>
                   <button className="p-2 rounded-lg" onClick={() => setOpen(false)}>
                     <X className="w-6 h-6" />
@@ -159,55 +159,113 @@ function App() {
         </p>
 
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              {
-                title: "Desempenho Rápido",
-                description: "Nossa aplicação é otimizada para oferecer desempenho rápido e eficiente, garantindo uma experiência suave para os usuários.",
-                icon: <Zap className="w-6 h-6 text-fuchsia-500 animate-pulse" />,
-              },
-              {
-                title: "Segurança Robusta",
-                description: "Implementamos medidas de segurança avançadas para proteger seus dados e garantir a integridade da aplicação.",
-                icon: <Shield className="w-6 h-6 text-pink-500 animate-pulse" />,
-              },
-              {
-                title: "Interface Intuitiva",
-                description: "Nossa interface é projetada para ser fácil de usar, permitindo que os usuários naveguem e interajam com a aplicação sem esforço.",
-                icon: <Sparkles className="w-6 h-6 text-purple-500 animate-pulse" />,
-              }
-            ].map((feature) => (
-              <div key={feature.title} className="rounded-2xl border border-white/10 bg-white/10 p-6">
-                <div className="flex items-center gap-3">
-                  {feature.icon}
-                  <h3 className="text-lg font-semibold">{feature.title}</h3>
-                </div>
-                <p className="text-slate-400 mt-2">{feature.description}</p>
+          {[
+            {
+              title: "Desempenho Rápido",
+              description: "Nossa aplicação é otimizada para oferecer desempenho rápido e eficiente, garantindo uma experiência suave para os usuários.",
+              icon: <Zap className="w-6 h-6 text-fuchsia-500 animate-pulse" />,
+            },
+            {
+              title: "Segurança Robusta",
+              description: "Implementamos medidas de segurança avançadas para proteger seus dados e garantir a integridade da aplicação.",
+              icon: <Shield className="w-6 h-6 text-pink-500 animate-pulse" />,
+            },
+            {
+              title: "Interface Intuitiva",
+              description: "Nossa interface é projetada para ser fácil de usar, permitindo que os usuários naveguem e interajam com a aplicação sem esforço.",
+              icon: <Sparkles className="w-6 h-6 text-purple-500 animate-pulse" />,
+            }
+          ].map((feature) => (
+            <div key={feature.title} className="rounded-2xl border border-white/10 bg-white/10 p-6">
+              <div className="flex items-center gap-3">
+                {feature.icon}
+                <h3 className="text-lg font-semibold">{feature.title}</h3>
               </div>
-            ))}
+              <p className="text-slate-400 mt-2">{feature.description}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* depoimentos */}
 
       <section id="testimonials" className="mx-auto max-w-6xl px-4 py-16">
-            <h2 className="text-3xl font-bold">Depoimentos</h2>
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[1,2,3].map((testimonial) => (
-                <blockquote key={testimonial} className="rounded-2xl border border-white/10 bg-white/10 p-6">
-                  <div className="flex items-center gap-2 text-ambar-400">
-                    {Array.from({ length: 5 }).map((_, index) => (
-                      <Star key={index} className="w-4 h-4 text-amber-400 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-slate-400 mt-2">
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                  </p>
+        <h2 className="text-3xl font-bold">Depoimentos</h2>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          {['Pedro', 'Maria', 'João'].map((testimonial) => (
+            <blockquote key={testimonial} className="rounded-2xl border border-white/10 bg-white/10 p-6">
+              <div className="flex items-center gap-2 text-ambar-400">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star key={index} className="w-4 h-4 text-amber-400 fill-current" />
+                ))}
+              </div>
+              <p className="text-slate-400 mt-2">
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              </p>
 
-                  <footer className="mt-4 text-sm text-slate-500">- Usuário {testimonial}</footer>
-                </blockquote>
-              ))}
-            </div>
+              <footer className="mt-4 text-sm text-slate-500">- {testimonial}</footer>
+            </blockquote>
+          ))}
+        </div>
       </section>
+
+      {/* preço */}
+      <section id="pricing" className="mx-auto max-w-6xl px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="rounded-2xl border border-white/10 bg-white/10 p-6">
+            <h3 className="text-xl font-bold">Plano Básico</h3>
+            <p className="text-2xl font-bold mt-2">$19,99/mês</p>
+            <ul className="mt-4 space-y-2">
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>Acesso limitado</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>Funcionalidades básicas</span>
+              </li>
+            </ul>
+            <button className="mt-4 bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-bold py-2 px-4 rounded">
+              Escolher Plano
+            </button>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-white/10 p-6">
+            <h3 className="text-xl font-bold">Plano Profissional</h3>
+            <p className="text-2xl font-bold mt-2">$49,99/mês</p>
+            <ul className="mt-4 space-y-2">
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>Acesso ilimitado</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>Funcionalidades avançadas</span>
+              </li>
+              <button className="mt-4 bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-bold py-2 px-4 rounded">
+                Escolher Plano
+              </button>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-white/10 p-6">
+            <h3 className="text-xl font-bold">Plano Empresarial</h3>
+            <p className="text-2xl font-bold mt-2">$99,99/mês</p>
+            <ul className="mt-4 space-y-2">
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>Acesso ilimitado</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="w-5 h-5 text-green-500" />
+                <span>Funcionalidades premium</span>
+              </li>
+            </ul>
+            <button className="mt-4 bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-bold py-2 px-4 rounded">
+              Escolher Plano
+            </button>
+          </div>
+        </div>
+      </section>
+
 
     </div>
   )
