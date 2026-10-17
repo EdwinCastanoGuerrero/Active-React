@@ -266,7 +266,18 @@ function App() {
         </div>
       </section>
 
-
+      {/* Footer */}
+      
+      <footer className="border-t border-white/10 bg-slate-900 py-6">
+        <div className="mx-auto max-w-6xl px-4 py-16 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>
+            <div>Active React @ {new Date().getFullYear()}</div>
+            <a href="#pricing" className="hover:text-fuchsia-600">
+              Política de privacidade
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
